@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Hero></Hero>
+    <div class="home-choose-text">
+      <h2 class="home-choose-title">WYBIERZ JĘZYK</h2>
+      <div class="line"></div>
+    </div>
+    <div class="home-choose-language">
+      <RouterLink to="/cpp">
+        <ChooseLanguage>
+          <img src="../assets/C++_logo.png" alt="c++" />
+        </ChooseLanguage>
+      </RouterLink>
+      <RouterLink to="/js">
+        <ChooseLanguage>
+          <img src="../assets/JavaScript-logo.png" alt="js" />
+        </ChooseLanguage>
+      </RouterLink>
+    </div>
   </div>
 </template>
-
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class HomeView extends Vue {}
+<script lang="ts" setup>
+import Hero from "@/components/Hero.vue";
+import ChooseLanguage from "@/components/ChooseLanguage.vue";
 </script>
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-choose-language {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.home-choose-text {
+  width: 20%;
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #2c3e50;
+}
+</style>
