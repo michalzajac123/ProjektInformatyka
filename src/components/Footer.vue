@@ -14,16 +14,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
+  position: fixed;
+  bottom: 0;
   align-items: center;
-  .footer-title{
+  .footer-title {
     font-size: 20px;
     font-weight: bold;
     color: #2c3e50;
     text-decoration: none;
     transition: 0.2s ease-in;
   }
-  .authors{
+  .authors {
     margin: 0 20px;
     font-size: 20px;
     font-weight: bold;
