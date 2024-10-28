@@ -1,13 +1,23 @@
 <template>
   <div class="footer">
     <div class="authors">
-      Michał Zając, Milan Sułek, Mikołaj Ziemiański, Julian Samek
+      <a href="https://www.instagram.com/michalek_2012/" target="_blank"
+        >Michał Zając</a
+      >, Milan Sułek, Mikołaj Ziemiański, Julian Samek
     </div>
     <div class="footer-title">Kurs C++ i JS</div>
   </div>
 </template>
 <script lang="ts" setup></script>
-<style>
+<style scoped>
+a {
+  text-decoration: none;
+  color: #2c3e50;
+  transition: 0.2s ease-in;
+}
+a:hover {
+  color: white;
+}
 .footer {
   background-color: rgb(255, 217, 0);
   height: 50px;

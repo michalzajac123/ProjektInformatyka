@@ -6,7 +6,7 @@
     </div>
     <div class="links">
       <RouterLink class="navbar-link" to="/">Strona główna</RouterLink>
-      <RouterLink class="navbar-link" to="/">JS</RouterLink>
+      <RouterLink class="navbar-link" to="/js">JS</RouterLink>
       <RouterLink class="navbar-link" to="/cpp">C++</RouterLink>
     </div>
   </div>
