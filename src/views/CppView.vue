@@ -58,13 +58,19 @@
               <div class="content-compiler d-flex justify-content-center">
                 <pre> 
                   <span class="text-success">int</span> age; // deklaracja zmiennej typu int
-                  cout << <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
-                  cin >> age; // instrukcja do wczytywania danych
+                  age = <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
+                  // cin >> age; // instrukcja do wczytywania danych z konsoli
                   cout << <span class="text text-success">"Twój wiek to: "</span> << age; // instrukcja do wypisywania danych
                 </pre>
               </div>
               <button class="compile" @click="compile">Kompiluj</button>
-              <div class="show-result" v-if="showResult">{{ age }}</div>
+              <div class="show-result" v-if="showResult">
+                {{ 
+                  Number.isInteger(parseFloat(age)) && !isNaN(age)
+                    ? "Twój wiek to: " + parseInt(age)
+                    : "Nieprawidłowe dane wejściowe"
+                }}
+              </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
           </div>
@@ -74,8 +80,8 @@
               <div class="content-compiler d-flex justify-content-center">
                 <pre> 
                   <span class="text-success">int</span> age; // deklaracja zmiennej typu int
-                  cout << <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
-                  cin >> age; // instrukcja do wczytywania danych
+                  age = <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
+                  // cin >> age; // instrukcja do wczytywania danych z konsoli
                   <span class="text-success">if</span>(age >= 18) { // instrukcja warunkowa
                     cout << <span class="text text-success">"Jesteś pełnoletni"</span>; // instrukcja do wypisywania danych
                   } <span class="text-success">else</span> {
@@ -85,7 +91,13 @@
               </div>
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                {{ age >= 18 ? "Jesteś pełnoletni" : "Nie jesteś pełnoletni" }}
+                {{
+                  Number.isInteger(parseFloat(age)) && !isNaN(age)
+                    ? age >= 18 && age <= 65
+                      ? "Jesteś pełnoletni"
+                      : "Nie jesteś pełnoletni"
+                    : "Nieprawidłowe dane wejściowe"
+                }}
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -97,8 +109,8 @@
               <div class="content-compiler d-flex justify-content-center">
                 <pre> 
                   <span class="text-success">int</span> age; // deklaracja zmiennej typu int
-                  cout << <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
-                  cin >> age; // instrukcja do wczytywania danych
+                  age = <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="age">"</span>; // instrukcja do wypisywania danych
+                  // cin >> age; // instrukcja do wczytywania danych z konsoli
                   <span class="text-success">if</span>(age >= 18 <span class="text-success">&amp;&amp;</span> age <= 65) { // instrukcja warunkowa && oznacza "i" to znaczy ze dwa warunku musza byc spelnione
                     cout << <span class="text text-success">"Jesteś w wieku produkcyjnym"</span>; // instrukcja do wypisywania danych
                   } <span class="text-success">else</span> {
@@ -111,13 +123,80 @@
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
                 {{
-                  age >= 18 && age <= 65
-                    ? "Jesteś w wieku produkcyjnym"
-                    : "Nie jesteś w wieku produkcyjnym"
+                  Number.isInteger(parseFloat(age)) && !isNaN(age)
+                    ? age >= 18 && age <= 65
+                      ? "Jesteś w wieku produkcyjnym"
+                      : "Nie jesteś w wieku produkcyjnym"
+                    : "Nieprawidłowe dane wejściowe"
+
+                 
                 }}
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Petla while w c++ -->
+            <div class="content-text">
+              <div class="content-title">Pętla While</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">int</span> i = 0; // deklaracja zmiennej typu int
+                  <span class="text-success">while</span>(i < 5) { // pętla While wykona się 5 razy
+                    cout << <span class="text text-success">"Powtórzenie nr"</span>; << i // instrukcja do wypisywania danych
+                    i++; // inkrementacja zmiennej i
+                  }
+                </pre>
+              </div>
+              // W pętli while warunek jest sprawdzany przed wykonaniem pętli <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Pętla do while -->
+            <div class="content-text">
+              <div class="content-title">Pętla Do While</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">int</span> i = 0; // deklaracja zmiennej typu int
+                  <span class="text-success">do</span> { // pętla Do While wykona się przynajmniej raz
+                    cout << <span class="text text-success">"Powtórzenie nr"</span> << i; // instrukcja do wypisywania danych
+                    i++; // inkrementacja zmiennej i
+                  } <span class="text-success">while</span>(i < 5);
+                </pre>
+              </div>
+              // Pętla różni się od pętli while tym, że wykona się przynajmniej raz, nawet jeśli warunek jest niespełniony <br>
+              // W pętli do while warunek jest sprawdzany po wykonaniu instrukcji <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Pętla for -->
+            <div class="content-text">
+              <div class="content-title">Pętla For</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">for</span>(<span class="text-success">int</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    cout << <span class="text text-success">"Powtórzenie nr"</span> << i; // instrukcja do wypisywania danych
+                  }
+                </pre>
+              </div>
+              // Pętla for składa się z trzech części: inicjalizacji, warunku i inkrementacji <br />
+              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz pętli, oraz wszystkie trzy części są widoczne w jednym miejscu <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>  
           </div>
         </div>
         <button

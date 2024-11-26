@@ -44,7 +44,7 @@
               </pre>
               </div>
               <button class="run" @click="runCode">Uruchom</button>
-              <div class="show-result" v-if="showResult">{{ logValue }}</div>
+              <div class="show-result" v-if="showResult">{{ logValue, console.log(logValue) }}</div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
           </div>
@@ -56,20 +56,16 @@
                 <pre> 
                   <span class="text-success">let</span> name = 
                   <span class="text-success">prompt</span>(
-                  <span class="text-success">"<input @focus="showResult=false" type="text" class="console-log text-success" placeholder="Podaj swoje imię" v-model="name">"</span>
+                  <span class="text-success">"Podaj swoje imię"</span>
                   );
                   <span class="text-success">alert</span>(
                   <span class="text-success">"Witaj, "</span> + name
                   );
-                  //Kliknij w napis "Podaj swoje imię", aby wprowadzić swoje imię
                   //Kliknij przycisk "Uruchom", aby zobaczyć efekt
               </pre>
               </div>
-              <button class="run" @click="runCode">Uruchom</button>
-              <div class="show-result" v-if="showResult">
-                {{ "Witaj," + name }}
-              </div>
-              <div class="show-result" v-else>{{ returnText }}</div>
+              <button class="run" @click="runCodeAlert(1)">Uruchom</button>
+              <!-- <div class="show-result" v-else>{{ returnText }}</div> -->
             </div>
           </div>
           <div class="carousel-item">
@@ -80,7 +76,7 @@
                 <pre> 
                   <span class="text-success">let</span> age = 
                   <span class="text-success">prompt</span>(
-                  <span class="text-success">"<input @focus="showResult=false" type="text" class="console-log text-success" placeholder="Podaj swój wiek" v-model="age">"</span>
+                  <span class="text-success">"Podaj swój wiek"</span>
                   );
                   <span class="text-success">if</span> (age >= 18) {
                     <span class="text-success">alert</span>(
@@ -94,11 +90,8 @@
                   //Kliknij przycisk "Uruchom", aby zobaczyć efekt
               </pre>
               </div>
-              <button class="run" @click="runCode">Uruchom</button>
-              <div class="show-result" v-if="showResult">
-                {{ age >= 18 ? "Jesteś pełnoletni" : "Nie jesteś pełnoletni" }}
-              </div>
-              <div class="show-result" v-else>{{ returnText }}</div>
+              <button class="run" @click="runCodeAlert(2)">Uruchom</button>
+              <!-- <div class="show-result" v-else>{{ returnText }}</div> -->
             </div>
           </div>
           <div class="carousel-item">
@@ -109,7 +102,7 @@
                 <pre> 
                   <span class="text-success">let</span> age = 
                   <span class="text-success">prompt</span>(
-                  <span class="text-success">"<input @focus="showResult=false" type="text" class="console-log text-success" placeholder="Podaj swój wiek" v-model="age">"</span>
+                  <span class="text-success">"Podaj swój wiek"</span>
                   );
                   <span class="text-success">if</span> (age >= 18 && age <= 65) { //&& oznacza i oba warunku musza byc spelniowe
                     <span class="text-success">alert</span>(
@@ -120,19 +113,12 @@
                     <span class="text-success">"Nie jesteś w wieku produkcyjnym"</span>
                     );
                   }
-                  //Istneije jeszce operator || oznaczajacy lub oznacza ze jeden warunek musi zostac spełniony
+                  //Istnieje jeszce operator || oznaczajacy "lub", który oznacza ze jeden warunek musi zostac spełniony
                   //Kliknij przycisk "Uruchom", aby zobaczyć efekt
               </pre>
               </div>
-              <button class="run" @click="runCode">Uruchom</button>
-              <div class="show-result" v-if="showResult">
-                {{
-                  age >= 18 && age <= 65
-                    ? "Jesteś w wieku produkcyjnym"
-                    : "Nie jesteś w wieku produkcyjnym"
-                }}
-              </div>
-              <div class="show-result" v-else>{{ returnText }}</div>
+              <button class="run" @click="runCodeAlert(3)">Uruchom</button>
+              <!-- <div class="show-result" v-else>{{ returnText }}</div> -->
             </div>
           </div>
         </div>
@@ -166,16 +152,38 @@ import { ref } from "vue";
 const showResult = ref(false);
 let logValue = ref("Hello World");
 let returnText = ref("Tutaj wyświetli się wynik");
-let name = ref("Podaj swoje imię");
+let name = ref("");
 let age = ref();
 const runCode = () => {
   returnText.value = "Uruchamianie...";
-  setTimeout(() => {
-    returnText.value = "Tutaj wyświetli się wynik";
-    showResult.value = true;
-  }, 1000);
+  returnText.value = "Tutaj wyświetli się wynik";
+  showResult.value = true;
   console.log("Kod uruchomiony");
 };
+const getData = (text: string) => {
+  return prompt(text)?.toString() || "";
+};
+const showData = (text: string) => {
+  alert(text);
+};
+
+const runCodeAlert = (alertNumber: number) =>{
+  switch (alertNumber) {
+    case 1:
+      name.value = getData("Podaj swoje imię");
+      showData("Witaj, " + name.value);
+      break;
+    case 2:
+      age.value = getData("Podaj swój wiek");
+      age.value >= 18 ? showData("Jesteś pełnoletni") : showData("Nie jesteś pełnoletni");
+      break;
+    case 3:
+      age.value = getData("Podaj swój wiek");
+      age.value >= 18 && age.value <= 65 ? showData("Jesteś w wieku produkcyjnym") : showData("Nie jesteś w wieku produkcyjnym");
+      break;
+    
+  }
+}
 </script>
 
 <style>
