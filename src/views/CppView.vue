@@ -198,6 +198,64 @@
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>  
           </div>
+          <div class="carousel-item">
+            <!-- Tablice jednowymiarowe w c++ -->
+            <div class="content-text">
+              <div class="content-title">Tablice jednowymiarowe</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">int</span> tab[5]; // deklaracja tablicy o rozmiarze 5
+                  <span class="text-success">for</span>(<span class="text-success">int</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    tab[i] = i; // przypisanie wartości do tablicy
+                  }
+                  <span class="text-success">for</span>(<span class="text-success">int</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    cout << tab[i] << <span class="text text-success">" "</span>; // instrukcja do wypisywania danych
+                  }
+                </pre>
+              </div>
+              // Tablice są zbiorem elementów tego samego typu <br />
+              // W C++ indeksowanie tablic zaczyna się od 0 <br />
+              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4 <br />
+              // Wartość tablicy jest dostępna pod indeksem i <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">{{ n-1 }} </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Tablice wielowymiarowe w c++ -->
+            <div class="content-text">
+              <div class="content-title">Tablice wielowymiarowe</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">int</span> tab[2][3]; // deklaracja tablicy 2x3
+                  <span class="text-success">for</span>(<span class="text-success">int</span> i = 0; i < 2; i++) { // pętla For dla wierszy
+                    <span class="text-success">for</span>(<span class="text-success">int</span> j = 0; j < 3; j++) { // pętla For dla kolumn
+                      tab[i][j] = i + j; // przypisanie wartości do tablicy
+                    }
+                  }
+                  <span class="text-success">for</span>(<span class="text-success">int</span> i = 0; i < 2; i++) { // pętla For dla wierszy
+                    <span class="text-success">for</span>(<span class="text-success">int</span> j = 0; j < 3; j++) { // pętla For dla kolumn
+                      cout << tab[i][j] << <span class="text text-success">" "</span>; // instrukcja do wypisywania danych
+                    }
+                    cout << <span class="text text-success">"\n"</span>; // nowa linia po każdym wierszu
+                  }
+                </pre>
+              </div>
+              // Tablice wielowymiarowe są tablicami tablic <br />
+              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3 kolumny <br />
+              // Wartość tablicy jest dostępna pod dwoma indeksami: i i j <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="i in 2" :key="i">
+                  <span v-for="j in 3" :key="j">{{ i-1 + j-1 }} &nbsp;</span>
+                </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
         </div>
         <button
           class="carousel-control-prev"
@@ -228,7 +286,7 @@
 import { ref } from "vue";
 const showResult = ref(false);
 let coutValue = ref("Hello World");
-let age = ref(0); // Inicjalizacja zmiennej age
+let age = ref<any>(0); // Inicjalizacja zmiennej age
 let returnText = ref("Tutaj wyświetli się fragment kodu");
 
 const compile = () => {

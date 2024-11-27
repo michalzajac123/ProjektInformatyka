@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
     <div class="navbar-logo">
-      <img src="../assets/C++_logo.png" alt="C++" />
-      <img src="../assets/JavaScript-logo.png" alt="JS" />
+      <RouterLink class="navbar-link" to="/js"><img src="../assets/JavaScript-logo.png" alt="JS" /></RouterLink>
+      <RouterLink class="navbar-link" to="/cpp"><img src="../assets/C++_logo.png" alt="C++" /></RouterLink>
     </div>
     <div class="links">
       <RouterLink class="navbar-link" to="/">Strona główna</RouterLink>
@@ -41,7 +41,7 @@ import { RouterLink } from "vue-router";
   align-items: center;
   margin-left: 100px;
 }
-.navbar-logo > img {
+.navbar-logo img {
   width: 80px;
   height: 80px;
   object-fit: cover;

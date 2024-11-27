@@ -121,6 +121,127 @@
               <!-- <div class="show-result" v-else>{{ returnText }}</div> -->
             </div>
           </div>
+          <div class="carousel-item">
+            <!-- Pętla While -->
+            <div class="content-text">
+              <div class="content-title">Pętla While</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">let</span> i = 0; // deklaracja zmiennej typu let
+                  <span class="text-success">while</span>(i < 5) { // pętla While wykona się 5 razy
+                    console.log(<span class="text text-success">"Powtórzenie nr"</span>, i); // instrukcja do wypisywania danych
+                    i++; // inkrementacja zmiennej i
+                  }
+                </pre>
+              </div>
+              // W pętli while warunek jest sprawdzany przed wykonaniem pętli <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Pętla Do While -->
+            <div class="content-text">
+              <div class="content-title">Pętla Do While</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">let</span> i = 0; // deklaracja zmiennej typu let
+                  <span class="text-success">do</span> { // pętla Do While wykona się przynajmniej raz
+                    console.log(<span class="text text-success">"Powtórzenie nr"</span>, i); // instrukcja do wypisywania danych
+                    i++; // inkrementacja zmiennej i
+                  } <span class="text-success">while</span>(i < 5);
+                </pre>
+              </div>
+              // Pętla różni się od pętli while tym, że wykona się przynajmniej raz, nawet jeśli warunek jest niespełniony <br>
+              // W pętli do while warunek jest sprawdzany po wykonaniu instrukcji <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Pętla For -->
+            <div class="content-text">
+              <div class="content-title">Pętla For</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">for</span>(<span class="text-success">let</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    console.log(<span class="text text-success">"Powtórzenie nr"</span>, i); // instrukcja do wypisywania danych
+                  }
+                </pre>
+              </div>
+              // Pętla for składa się z trzech części: inicjalizacji, warunku i inkrementacji <br />
+              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz pętli, oraz wszystkie trzy części są widoczne w jednym miejscu <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Tablice jednowymiarowe -->
+            <div class="content-text">
+              <div class="content-title">Tablice jednowymiarowe</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">let</span> tab = []; // deklaracja tablicy
+                  <span class="text-success">for</span>(<span class="text-success">let</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    tab[i] = i; // przypisanie wartości do tablicy
+                  }
+                  <span class="text-success">for</span>(<span class="text-success">let</span> i = 0; i < 5; i++) { // pętla For wykona się 5 razy
+                    console.log(tab[i]); // instrukcja do wypisywania danych
+                  }
+                </pre>
+              </div>
+              // Tablice są zbiorem elementów tego samego typu <br />
+              // W JavaScript indeksowanie tablic zaczyna się od 0 <br />
+              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4 <br />
+              // Wartość tablicy jest dostępna pod indeksem i <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="n in 5" :key="n">{{ n-1 }} </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Tablice wielowymiarowe -->
+            <div class="content-text">
+              <div class="content-title">Tablice wielowymiarowe</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">let</span> tab = [[], []]; // deklaracja tablicy 2x3
+                  <span class="text-success">for</span>(<span class="text-success">let</span> i = 0; i < 2; i++) { // pętla For dla wierszy
+                    <span class="text-success">for</span>(<span class="text-success">let</span> j = 0; j < 3; j++) { // pętla For dla kolumn
+                      tab[i][j] = i + j; // przypisanie wartości do tablicy
+                    }
+                  }
+                  <span class="text-success">for</span>(<span class="text-success">let</span> i = 0; i < 2; i++) { // pętla For dla wierszy
+                    <span class="text-success">for</span>(<span class="text-success">let</span> j = 0; j < 3; j++) { // pętla For dla kolumn
+                      console.log(tab[i][j]); // instrukcja do wypisywania danych
+                    }
+                    console.log(<span class="text text-success">"\n"</span>); // nowa linia po każdym wierszu
+                  }
+                </pre>
+              </div>
+              // Tablice wielowymiarowe są tablicami tablic <br />
+              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3 kolumny <br />
+              // Wartość tablicy jest dostępna pod dwoma indeksami: i i j <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                <div v-for="i in 2" :key="i">
+                  <span v-for="j in 3" :key="j">{{ i-1 + j-1 }} &nbsp;</span>
+                </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
         </div>
         <button
           class="carousel-control-prev"
@@ -155,8 +276,8 @@ let returnText = ref("Tutaj wyświetli się wynik");
 let name = ref("");
 let age = ref();
 const runCode = () => {
-  returnText.value = "Uruchamianie...";
-  returnText.value = "Tutaj wyświetli się wynik";
+  // returnText.value = "Uruchamianie...";
+  // returnText.value = "Tutaj wyświetli się wynik";
   showResult.value = true;
   console.log("Kod uruchomiony");
 };
@@ -183,7 +304,7 @@ const runCodeAlert = (alertNumber: number) =>{
       break;
     
   }
-}
+};
 </script>
 
 <style>
