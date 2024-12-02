@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+document.querySelector("html")?.setAttribute("lang", "pl");
 </script>
 <style>
 body {

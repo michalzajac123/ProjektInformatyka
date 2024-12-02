@@ -40,7 +40,7 @@
                 <pre>
                   <span class="text-success">#include &lt;iostream&gt;</span> // wczytanie biblioteki iostream
                   using namespace std; // deklaracja użycia przestrzeni nazw std
-                  <span class="text-primary">int</span> main() { // główna funkcja
+                  <span class="text-success">int</span> <span class="text-primary">main</span>() { // główna funkcja
                     cout << <span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Hello World" v-model="coutValue">"</span>; // instrukcja do wypisywania danych
                     // Kliknij w napis Hello World, aby wczytać swoje dane
                     return 0; // zwracamy wartość typu integer
@@ -65,7 +65,7 @@
               </div>
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                {{ 
+                {{
                   Number.isInteger(parseFloat(age)) && !isNaN(age)
                     ? "Twój wiek to: " + parseInt(age)
                     : "Nieprawidłowe dane wejściowe"
@@ -128,8 +128,6 @@
                       ? "Jesteś w wieku produkcyjnym"
                       : "Nie jesteś w wieku produkcyjnym"
                     : "Nieprawidłowe dane wejściowe"
-
-                 
                 }}
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
@@ -148,10 +146,11 @@
                   }
                 </pre>
               </div>
-              // W pętli while warunek jest sprawdzany przed wykonaniem pętli <br />
+              // W pętli while warunek jest sprawdzany przed wykonaniem pętli
+              <br />
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -169,14 +168,16 @@
                   } <span class="text-success">while</span>(i < 5);
                 </pre>
               </div>
-              // Pętla różni się od pętli while tym, że wykona się przynajmniej raz, nawet jeśli warunek jest niespełniony <br>
-              // W pętli do while warunek jest sprawdzany po wykonaniu instrukcji <br />
+              // Pętla różni się od pętli while tym, że wykona się przynajmniej
+              raz, nawet jeśli warunek jest niespełniony <br />
+              // W pętli do while warunek jest sprawdzany po wykonaniu
+              instrukcji <br />
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
-              </div>
+            </div>
           </div>
           <div class="carousel-item">
             <!-- Pętla for -->
@@ -189,14 +190,17 @@
                   }
                 </pre>
               </div>
-              // Pętla for składa się z trzech części: inicjalizacji, warunku i inkrementacji <br />
-              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz pętli, oraz wszystkie trzy części są widoczne w jednym miejscu <br />
+              // Pętla for składa się z trzech części: inicjalizacji, warunku i
+              inkrementacji <br />
+              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz
+              pętli, oraz wszystkie trzy części są widoczne w jednym miejscu
+              <br />
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
-            </div>  
+            </div>
           </div>
           <div class="carousel-item">
             <!-- Tablice jednowymiarowe w c++ -->
@@ -215,11 +219,12 @@
               </div>
               // Tablice są zbiorem elementów tego samego typu <br />
               // W C++ indeksowanie tablic zaczyna się od 0 <br />
-              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4 <br />
+              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4
+              <br />
               // Wartość tablicy jest dostępna pod indeksem i <br />
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">{{ n-1 }} </div>
+                <div v-for="n in 5" :key="n">{{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -245,13 +250,90 @@
                 </pre>
               </div>
               // Tablice wielowymiarowe są tablicami tablic <br />
-              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3 kolumny <br />
+              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3
+              kolumny <br />
               // Wartość tablicy jest dostępna pod dwoma indeksami: i i j <br />
               <button class="compile" @click="compile">Kompiluj</button>
               <div class="show-result" v-if="showResult">
                 <div v-for="i in 2" :key="i">
-                  <span v-for="j in 3" :key="j">{{ i-1 + j-1 }} &nbsp;</span>
+                  <span v-for="j in 3" :key="j"
+                    >{{ i - 1 + j - 1 }} &nbsp;</span
+                  >
                 </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Funkcje w c++ wprowadzenie, wytlumaczenie pojecia, zastosowania oraz skladni-->
+            <div class="content-text">
+              <div class="content-title">Funkcje</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">#include &lt;iostream&gt;</span> // wczytanie biblioteki iostream
+                  using namespace std; // deklaracja użycia przestrzeni nazw std 
+                  
+                  <span class="text-success">int</span> <span class="text-primary">add</span>(<span class="text-success">int</span> a, <span class="text-success">int</span> b) { // deklaracja funkcji add
+                    <span class="text-success">return</span> a + b; // zwracanie sumy dwóch liczb
+                  }
+                  
+                  <span class="text-success">int</span> <span class="text-primary">main</span>() { // główna funkcja
+                    <span class="text-success">int</span> result = add(2, 3); // wywołanie funkcji add
+                    cout << result; // instrukcja do wypisywania danych
+                    return 0; // zwracamy wartość typu integer
+                  }
+                </pre>
+              </div>
+              // Funkcje są blokami kodu, które wykonują określone zadanie
+              <br />
+              // Funkcje mogą przyjmować argumenty i zwracać wartość <br />
+              // W powyższym przykładzie funkcja add przyjmuje dwa argumenty i
+              zwraca ich sumę <br />
+              // Funkcja add jest wywoływana z argumentami 2 i 3 <br />
+              // Wynik funkcji add jest przypisywany do zmiennej result <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">{{ 2 + 3 }}</div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Funkcje w c++ rozwiniecie, funkcja void, przyklad z Hello user -->
+            <div class="content-text">
+              <div class="content-title">Funkcje - dalsza część</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">#include &lt;iostream&gt;</span> // wczytanie biblioteki iostream
+                  using namespace std; // deklaracja użycia przestrzeni nazw std 
+                  
+                  <span class="text-success">void</span> <span class="text-primary">helloUser</span>(<span class="text-success">string</span> name) { // deklaracja funkcji helloUser
+                    if (name != "Podaj swoje imię") { // instrukcja warunkowa
+                      cout << <span class="text text-success">"Hello "</span> << name; // instrukcja do wypisywania danych
+                    }
+                    else{
+                      cout << <span class="text text-success">"Zapomniałeś podaj swojego imienia"</span>; // instrukcja do wypisywania danych
+                    }
+                    <!-- cout << <span class="text text-success">"Hello "</span> << name; // instrukcja do wypisywania danych -->
+                  }
+                  
+                  <span class="text-success">int</span> <span class="text-primary">main</span>() { // główna funkcja
+                    helloUser(<span class="text text-success">"<input @focus="showResult=false" type="text" class="cout text-success" placeholder="Podaj wiek" v-model="name">"</span>); // wywołanie funkcji helloUser
+                    return 0; // zwracamy wartość typu integer
+                  }
+                </pre>
+              </div>
+              // Funkcje mogą zwracać wartość lub nie zwracać nic <br />
+              // Funkcje, które nie zwracają wartości, są deklarowane jako void
+              <br />
+              // W powyższym przykładzie funkcja helloUser przyjmuje jeden
+              argument i nie zwraca wartości <br />
+              // Funkcja helloUser jest wywoływana z argumentem "User" <br />
+              <button class="compile" @click="compile">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                {{
+                  name !== "Podaj swoje imię" && name !== ""
+                    ? "Hello " + name
+                    : "Zapomniałeś podaj swojego imienia"
+                }}
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -287,6 +369,7 @@ import { ref } from "vue";
 const showResult = ref(false);
 let coutValue = ref("Hello World");
 let age = ref<any>(0); // Inicjalizacja zmiennej age
+let name = ref("Podaj swoje imię");
 let returnText = ref("Tutaj wyświetli się fragment kodu");
 
 const compile = () => {
@@ -354,5 +437,14 @@ li {
 .cout {
   background-color: transparent;
   border: 0;
+  /* border-bottom: 1px solid #000; */
+  background-image: linear-gradient(
+    to right,
+    black 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
 }
 </style>

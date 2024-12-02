@@ -3,7 +3,11 @@
     <div class="authors">
       <a href="https://www.instagram.com/michalek_2012/" target="_blank"
         >Michał Zając</a
-      >, Milan Sułek, Mikołaj Ziemiański, Julian Samek
+      >, <a href="https://www.instagram.com/zyniok/">Milan Sułek</a>,
+      <a href="https://www.instagram.com/mikolajziemianski/"
+        >Mikołaj Ziemiański</a
+      >,
+      <a href="https://www.instagram.com/">Julian Samek</a>
     </div>
     <div class="footer-title">Kurs C++ i JS</div>
   </div>

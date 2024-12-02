@@ -32,7 +32,7 @@
           <div class="carousel-item">
             <div class="content-text">
               <div class="content-title">
-                Wypiswanie danych w konsoli przeglądarki
+                Wypisywanie danych w konsoli przeglądarki
               </div>
               <div class="content-compiler d-flex justify-content-center">
                 <pre> 
@@ -44,7 +44,9 @@
               </pre>
               </div>
               <button class="run" @click="runCode">Uruchom</button>
-              <div class="show-result" v-if="showResult">{{ logValue, console.log(logValue) }}</div>
+              <div class="show-result" v-if="showResult">
+                {{ (logValue, console.log(logValue)) }}
+              </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
           </div>
@@ -134,10 +136,11 @@
                   }
                 </pre>
               </div>
-              // W pętli while warunek jest sprawdzany przed wykonaniem pętli <br />
+              // W pętli while warunek jest sprawdzany przed wykonaniem pętli
+              <br />
               <button class="run" @click="runCode">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -155,11 +158,13 @@
                   } <span class="text-success">while</span>(i < 5);
                 </pre>
               </div>
-              // Pętla różni się od pętli while tym, że wykona się przynajmniej raz, nawet jeśli warunek jest niespełniony <br>
-              // W pętli do while warunek jest sprawdzany po wykonaniu instrukcji <br />
+              // Pętla różni się od pętli while tym, że wykona się przynajmniej
+              raz, nawet jeśli warunek jest niespełniony <br />
+              // W pętli do while warunek jest sprawdzany po wykonaniu
+              instrukcji <br />
               <button class="run" @click="runCode">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -175,11 +180,14 @@
                   }
                 </pre>
               </div>
-              // Pętla for składa się z trzech części: inicjalizacji, warunku i inkrementacji <br />
-              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz pętli, oraz wszystkie trzy części są widoczne w jednym miejscu <br />
+              // Pętla for składa się z trzech części: inicjalizacji, warunku i
+              inkrementacji <br />
+              // Jej plusem jest to, że zmienna i jest dostępna tylko wewnątrz
+              pętli, oraz wszystkie trzy części są widoczne w jednym miejscu
+              <br />
               <button class="run" @click="runCode">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n-1 }}</div>
+                <div v-for="n in 5" :key="n">Powtórzenie nr {{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -201,11 +209,12 @@
               </div>
               // Tablice są zbiorem elementów tego samego typu <br />
               // W JavaScript indeksowanie tablic zaczyna się od 0 <br />
-              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4 <br />
+              // W powyższym przykładzie tablica tab zawiera liczby od 0 do 4
+              <br />
               // Wartość tablicy jest dostępna pod indeksem i <br />
               <button class="run" @click="runCode">Kompiluj</button>
               <div class="show-result" v-if="showResult">
-                <div v-for="n in 5" :key="n">{{ n-1 }} </div>
+                <div v-for="n in 5" :key="n">{{ n - 1 }}</div>
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -231,13 +240,63 @@
                 </pre>
               </div>
               // Tablice wielowymiarowe są tablicami tablic <br />
-              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3 kolumny <br />
+              // W powyższym przykładzie tablica tab zawiera 2 wiersze i 3
+              kolumny <br />
               // Wartość tablicy jest dostępna pod dwoma indeksami: i i j <br />
               <button class="run" @click="runCode">Kompiluj</button>
               <div class="show-result" v-if="showResult">
                 <div v-for="i in 2" :key="i">
-                  <span v-for="j in 3" :key="j">{{ i-1 + j-1 }} &nbsp;</span>
+                  <span v-for="j in 3" :key="j"
+                    >{{ i - 1 + j - 1 }} &nbsp;</span
+                  >
                 </div>
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Funkcje w JS wprowadzenie, wytlumaczenie pojecia, zastosowania oraz skladni -->
+            <!-- Zrob podswietlanie nazwy funkcji na fioletowo -->
+            <div class="content-text">
+              <div class="content-title">Funkcje</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">function</span> <span class="text text-primary">myFunction</span>() { // deklaracja funkcji
+                    consolespan.log(<span class="text text-success">"<input @focus="showResult=false" type="text" class="console-log text-success" placeholder="Hello World" v-model="logValue">"</span>); // instrukcja do wypisywania danych
+                  }
+                  <span class="text text-primary">myFunction</span>(); // wywołanie funkcji
+                </pre>
+              </div>
+              // Funkcje są blokami kodu, które wykonują określone zadanie
+              <br />
+              // Funkcje mogą być wywoływane wielokrotnie <br />
+              // Wartości przekazywane do funkcji nazywane są parametrami <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                {{ logValue }}
+              </div>
+              <div class="show-result" v-else>{{ returnText }}</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!-- Funkcje strzalkowe w JS-->
+            <div class="content-text">
+              <div class="content-title">Funkcje strzałkowe</div>
+              <div class="content-compiler d-flex justify-content-center">
+                <pre>
+                  <span class="text-success">let</span> <span class="text text-primary">myFunction</span> = () => { // deklaracja funkcji strzałkowej
+                    console.log(<span class="text text-success">"<input @focus="showResult=false" type="text" class="console-log text-success" placeholder="Hello World" v-model="logValue">"</span>); // instrukcja do wypisywania danych
+                  }
+                  <span class="text text-primary">myFunction</span>(); // wywołanie funkcji
+                </pre>
+              </div>
+              // Funkcje strzałkowe są skróconą wersją funkcji zwykłych <br />
+              // Są one anonimowe, co oznacza, że nie mają nazwy <br />
+              // Funkcje strzałkowe nie mają własnego this, co oznacza, że
+              odwołują się do this z otaczającego kontekstu <br />
+              <button class="run" @click="runCode">Kompiluj</button>
+              <div class="show-result" v-if="showResult">
+                {{ logValue }}
               </div>
               <div class="show-result" v-else>{{ returnText }}</div>
             </div>
@@ -288,7 +347,7 @@ const showData = (text: string) => {
   alert(text);
 };
 
-const runCodeAlert = (alertNumber: number) =>{
+const runCodeAlert = (alertNumber: number) => {
   switch (alertNumber) {
     case 1:
       name.value = getData("Podaj swoje imię");
@@ -296,13 +355,16 @@ const runCodeAlert = (alertNumber: number) =>{
       break;
     case 2:
       age.value = getData("Podaj swój wiek");
-      age.value >= 18 ? showData("Jesteś pełnoletni") : showData("Nie jesteś pełnoletni");
+      age.value >= 18
+        ? showData("Jesteś pełnoletni")
+        : showData("Nie jesteś pełnoletni");
       break;
     case 3:
       age.value = getData("Podaj swój wiek");
-      age.value >= 18 && age.value <= 65 ? showData("Jesteś w wieku produkcyjnym") : showData("Nie jesteś w wieku produkcyjnym");
+      age.value >= 18 && age.value <= 65
+        ? showData("Jesteś w wieku produkcyjnym")
+        : showData("Nie jesteś w wieku produkcyjnym");
       break;
-    
   }
 };
 </script>
@@ -363,5 +425,14 @@ li {
 .console-log {
   background-color: transparent;
   border: 0;
+  /* border-bottom: 1px dotted #000; */
+  background-image: linear-gradient(
+    to right,
+    black 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
 }
 </style>
